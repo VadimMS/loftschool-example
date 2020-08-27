@@ -80,16 +80,16 @@ function slice(array, from = 0, to = array.length) {
     
     let newArr = [];
 
-    if (Boolean(+from) === false) {
-        from = 0
+    if (!!from === false) {
+        from = 0;
     }
 
     if (from < 0) {
-        from = array.length + from
+        from = array.length + from;
     }
 
     if (to < 0) {
-        to = array.length + to
+        to = array.length + to;
     }
 
     for (let i = from; i < to; i++) {
@@ -101,7 +101,7 @@ function slice(array, from = 0, to = array.length) {
     return newArr;
 }
 
-slice(array, 0, 3);
+slice(array, 1, 3);
 
 /*
  Задание 6 *:
