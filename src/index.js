@@ -17,7 +17,7 @@ function createDivWithText(text) {
 
     return divElement;
 }
-// createDivWithText('loftschool');
+createDivWithText('loftschool');
 
 /*
  Задание 2:
@@ -31,7 +31,7 @@ function prepend(what, where) {
     where.insertBefore(what, where.firstElementChild);
     // where.prepend(what);
 }
-// prepend(document.querySelector('#one'), document.querySelector('#two'));
+prepend(document.querySelector('#one'), document.querySelector('#two'));
 /*
  Задание 3:
 
@@ -62,7 +62,7 @@ function findAllPSiblings(where) {
 
     return nextP;
 }
-// findAllPSiblings(document.body);
+findAllPSiblings(document.querySelector('#taskThre'));
 /*
  Задание 4:
 
@@ -91,7 +91,7 @@ function findError(where) {
 
     return result;
 }
-// findError(document.body);
+findError(document.querySelector('#taskFour'));
 /*
  Задание 5:
 
@@ -115,7 +115,7 @@ function deleteTextNodes(where) {
     }
 }
 
-// deleteTextNodes(document.body);
+deleteTextNodes(document.querySelector('#taskFive'));
 /*
  Задание 6:
 
@@ -139,7 +139,7 @@ function deleteTextNodesRecursive(where) {
         }
     }
 }
-// deleteTextNodesRecursive(document.body);
+deleteTextNodesRecursive(document.querySelector('#taskSix'));
 /*
  Задание 7 *:
 
@@ -195,7 +195,7 @@ function collectDOMStat(root) {
 
     return statistics;
 }
-// collectDOMStat(document.querySelector('.wrapper'));
+collectDOMStat(document.querySelector('#taskSeven'));
 /*
  Задание 8 *:
 
@@ -242,7 +242,7 @@ function observeChildNodes(where, fn) {
 
     observer.observe(where, { childList: true, subtree: true });
 }
-// observeChildNodes(document.querySelector('.wrapper'), obj => obj);
+observeChildNodes(document.querySelector('#taskEight'), obj => obj);
 
 export {
     createDivWithText,
