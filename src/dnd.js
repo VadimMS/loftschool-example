@@ -26,7 +26,7 @@
    homeworkContainer.appendChild(newDiv);
  */
 
-import './dnd.hbs';
+// import './dnd.hbs';
 
 const homeworkContainer = document.querySelector('#homework-container');
 

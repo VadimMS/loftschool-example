@@ -11,7 +11,7 @@
 function addListener(eventName, target, fn) {
     target.addEventListener(eventName, fn);
 }
-addListener('click', document.querySelector('a'), () => alert('Add Listener'));
+addListener('click', document.querySelector('#taskOne'), () => alert('Add Listener'));
 /*
  Задание 2:
 
@@ -23,7 +23,7 @@ addListener('click', document.querySelector('a'), () => alert('Add Listener'));
 function removeListener(eventName, target, fn) {
     target.removeEventListener(eventName, fn);
 }
-removeListener('click', document.querySelector('a'), () => alert('Remove Listener'));
+removeListener('click', document.querySelector('#taskOne'), () => alert('Remove Listener'));
 /*
  Задание 3:
 
@@ -35,7 +35,7 @@ removeListener('click', document.querySelector('a'), () => alert('Remove Listene
 function skipDefault(eventName, target) {
     target.addEventListener(eventName, e => e.preventDefault());
 }
-skipDefault('click', document.querySelector('a'));
+skipDefault('click', document.querySelector('#taskTwo'));
 /*
  Задание 4:
 
@@ -47,7 +47,7 @@ skipDefault('click', document.querySelector('a'));
 function emulateClick(target) {
     target.dispatchEvent(new MouseEvent('click'));
 }
-emulateClick(document.querySelector('a'));
+emulateClick(document.querySelector('#taskThre'));
 /*
  Задание 5:
 
@@ -91,6 +91,6 @@ function once(target, fn) {
     //     }
     // });
 }
-once(document.querySelector('button'), () => alert('обработчик выполнился!'));
+once(document.querySelector('#taskFive'), () => alert('обработчик выполнился!'));
 
 export { addListener, removeListener, skipDefault, emulateClick, delegate, once };
