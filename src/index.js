@@ -11,14 +11,16 @@
    createDivWithText('loftschool') // создаст элемент div, поместит в него 'loftschool' и вернет созданный элемент
  */
 function createDivWithText(text) {
-    const divElement = document.createElement('div');
+
+    let divElement = document.createElement('div');
 
     divElement.textContent = text;
 
-    return divElement;
-}
-createDivWithText('loftschool');
+    return divElement
 
+}
+
+// createDivWithText('loftschool')
 /*
  Задание 2:
 
@@ -28,10 +30,10 @@ createDivWithText('loftschool');
    prepend(document.querySelector('#one'), document.querySelector('#two')) // добавит элемент переданный первым аргументом в начало элемента переданного вторым аргументом
  */
 function prepend(what, where) {
-    where.insertBefore(what, where.firstElementChild);
-    // where.prepend(what);
+    // where.insertBefore(what, where.firstElementChild);
+    where.prepend(what);
 }
-prepend(document.querySelector('#one'), document.querySelector('#two'));
+// prepend(document.querySelector('#one'), document.querySelector('#two'));
 /*
  Задание 3:
 
@@ -40,7 +42,7 @@ prepend(document.querySelector('#one'), document.querySelector('#two'));
  3.2: Функция должна вернуть массив, состоящий из тех дочерних элементов, следующим соседом которых является элемент с тегом P
 
  Пример:
-   Представим, что есть разметка:
+   Представим, что есть разметка:сдуфк
    <body>
       <div></div>
       <p></p>
@@ -62,7 +64,8 @@ function findAllPSiblings(where) {
 
     return nextP;
 }
-findAllPSiblings(document.querySelector('#taskThre'));
+// findAllPSiblings(document.querySelector('#taskThre'));
+
 /*
  Задание 4:
 
@@ -91,7 +94,8 @@ function findError(where) {
 
     return result;
 }
-findError(document.querySelector('#taskFour'));
+
+// findError(document.querySelector('#taskFour'));
 /*
  Задание 5:
 
@@ -101,7 +105,7 @@ findError(document.querySelector('#taskFour'));
  Так же будьте внимательны при удалении узлов, т.к. можно получить неожиданное поведение при переборе узлов
 
  Пример:
-   После выполнения функции, дерево <div></div>привет<p></p>loftchool!!!
+   После выполнения функции, дерево <div></div>привет<p></p>loftchool!!!01 
    должно быть преобразовано в <div></div><p></p>
  */
 function deleteTextNodes(where) {
@@ -115,7 +119,7 @@ function deleteTextNodes(where) {
     }
 }
 
-deleteTextNodes(document.querySelector('#taskFive'));
+// deleteTextNodes(document.querySelector('#taskFive'));
 /*
  Задание 6:
 
@@ -139,7 +143,8 @@ function deleteTextNodesRecursive(where) {
         }
     }
 }
-deleteTextNodesRecursive(document.querySelector('#taskSix'));
+// deleteTextNodesRecursive(document.querySelector('#taskSix'));
+
 /*
  Задание 7 *:
 
@@ -194,8 +199,11 @@ function collectDOMStat(root) {
     scan(root);
 
     return statistics;
+
 }
-collectDOMStat(document.querySelector('#taskSeven'));
+
+// collectDOMStat(document.querySelector('#taskSeven'));
+
 /*
  Задание 8 *:
 
@@ -242,7 +250,8 @@ function observeChildNodes(where, fn) {
 
     observer.observe(where, { childList: true, subtree: true });
 }
-observeChildNodes(document.querySelector('#taskEight'), obj => obj);
+
+// observeChildNodes(document.querySelector('#taskEight'), obj => obj);
 
 export {
     createDivWithText,
@@ -252,5 +261,5 @@ export {
     deleteTextNodes,
     deleteTextNodesRecursive,
     collectDOMStat,
-    observeChildNodes,
+    observeChildNodes
 };
