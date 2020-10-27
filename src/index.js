@@ -11,7 +11,7 @@
 function addListener(eventName, target, fn) {
     target.addEventListener(eventName, fn);
 }
-addListener('click', document.querySelector('#taskOne'), () => alert('Add Listener'));
+// addListener('click', document.querySelector('#taskOne'), () => alert('Add Listener'));
 /*
  Задание 2:
 
@@ -23,7 +23,7 @@ addListener('click', document.querySelector('#taskOne'), () => alert('Add Listen
 function removeListener(eventName, target, fn) {
     target.removeEventListener(eventName, fn);
 }
-removeListener('click', document.querySelector('#taskOne'), () => alert('Remove Listener'));
+// removeListener('click', document.querySelector('#taskOne'), () => alert('Remove Listener'));
 /*
  Задание 3:
 
@@ -35,7 +35,7 @@ removeListener('click', document.querySelector('#taskOne'), () => alert('Remove 
 function skipDefault(eventName, target) {
     target.addEventListener(eventName, e => e.preventDefault());
 }
-skipDefault('click', document.querySelector('#taskTwo'));
+// skipDefault('click', document.querySelector('#taskTwo'));
 /*
  Задание 4:
 
@@ -47,7 +47,7 @@ skipDefault('click', document.querySelector('#taskTwo'));
 function emulateClick(target) {
     target.dispatchEvent(new MouseEvent('click'));
 }
-emulateClick(document.querySelector('#taskThre'));
+// emulateClick(document.querySelector('#taskThre'));
 /*
  Задание 5:
 
@@ -64,7 +64,7 @@ function delegate(target, fn) {
         }
     });
 }
-delegate(document.body, () => alert('кликнули на button'));
+// delegate(document.body, () => alert('кликнули на button'));
 /*
  Задание 6:
 
@@ -77,20 +77,21 @@ delegate(document.body, () => alert('кликнули на button'));
 function once(target, fn) {
     let isAlready = false;
 
-    if (!isAlready) {
-        target.addEventListener('click', () => {
-            fn();
-            isAlready = true;
-            target.removeEventListener('click');
-        });
-    }
-    // target.addEventListener('click', () => {
-    //     if (!isAlready) {
+    // if (!isAlready) {
+    //     target.addEventListener('click', () => {
     //         fn();
     //         isAlready = true;
-    //     }
-    // });
+    //         target.removeEventListener('click');
+    //     });
+    // }
+    
+    target.addEventListener('click', () => {
+        if (!isAlready) {
+            fn();
+            isAlready = true;
+        }
+    });
 }
-once(document.querySelector('#taskFive'), () => alert('обработчик выполнился!'));
+// once(document.querySelector('#taskFive'), () => alert('обработчик выполнился!'));
 
 export { addListener, removeListener, skipDefault, emulateClick, delegate, once };
