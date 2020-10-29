@@ -12,7 +12,7 @@ function delayPromise(seconds) {
     return new Promise(resolve => setTimeout(resolve, seconds * 1000));
 }
 
-delayPromise(3);
+// delayPromise(3);
 /*
  Задание 2:
 
@@ -50,7 +50,7 @@ function loadAndSortTowns() {
     //     });
     // });
 }
-loadAndSortTowns().then(towns => console.log(towns));
+// loadAndSortTowns().then(towns => console.log(towns));
 
 // async function loadAndSortTowns() {
 //     const response = await fetch(url);

@@ -37,7 +37,7 @@ const homeworkContainer = document.querySelector('#homework-container');
  https://raw.githubusercontent.com/smelukov/citiesTest/master/cities.json
  */
 
-import {loadAndSortTowns} from './index';
+import { loadAndSortTowns } from './index';
 
 function loadTowns() {
     return loadAndSortTowns();
@@ -75,6 +75,11 @@ let towns = [];
 
 retryButton.addEventListener('click', function () {
     tryToLoad();
+    // tryToLoad().then((arr => towns = arr)).catch(() => {
+    //     filterBlock.classList.add('hidden');
+    //     loadingBlock.classList.add('hidden');
+    //     loadingFailedBlock.classList.remove('hidden');
+    // });
 });
 
 filterInput.addEventListener('input', function () {
@@ -97,23 +102,37 @@ async function tryToLoad() {
     loadingFailedBlock.classList.remove('hidden');
   }
 }
+// function tryToLoad() {
+//     return new Promise(resolve => {
+//         loadingBlock.classList.add('hidden');
+//         loadingFailedBlock.classList.add('hidden');
+//         filterBlock.classList.remove('hidden');
+//         resolve(loadTowns());
+//     });
+// }
 
 function updateFilter(filterValue) {
-  filterResult.innerHTML = '';
+    filterResult.innerHTML = '';
 
-  const fragment = document.createDocumentFragment();
+    const fragment = document.createDocumentFragment();
 
-  for (let town of towns) {
-    if (filterValue && isMatching(town.name, filterValue)) {
-      const townDiv = document.createElement('div');
-      townDiv.textContent = town.name;
-      fragment.append(townDiv);
+    for (let town of towns) {
+        if (filterValue && isMatching(town.name, filterValue)) {
+            const townDiv = document.createElement('div');
+
+            townDiv.textContent = town.name;
+            fragment.append(townDiv);
+        }
     }
-  }
 
-  filterResult.append(fragment);
+    filterResult.append(fragment);
 }
 
 tryToLoad();
+// tryToLoad().then((arr => towns = arr)).catch(() => {
+//     filterBlock.classList.add('hidden');
+//     loadingBlock.classList.add('hidden');
+//     loadingFailedBlock.classList.remove('hidden');
+// });
 
 export { loadTowns, isMatching };
