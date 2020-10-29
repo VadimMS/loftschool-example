@@ -31,7 +31,6 @@
    const newDiv = document.createElement('div');
    homeworkContainer.appendChild(newDiv);
  */
-import './cookie.html';
 
 const homeworkContainer = document.querySelector('#homework-container');
 // текстовое поле для фильтрации cookie
